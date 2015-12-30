@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +17,176 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6F7-e1-c0T">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="XIM-dd-FPo">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="75"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="30" id="nc0-oy-aa6"/>
+                                </constraints>
+                                <state key="normal" title="创建数据库"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="XIM-dd-FPo"/>
+                                        <exclude reference="nc0-oy-aa6"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="XIM-dd-FPo"/>
+                                        <include reference="nc0-oy-aa6"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="createdb:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TjD-sP-CDQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NM1-5z-uYT">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="3U9-os-G7N"/>
+                                    <constraint firstAttribute="width" constant="46" id="9sa-cp-pgu">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="30"/>
+                                    </constraint>
+                                </constraints>
+                                <state key="normal" title="创表"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="3U9-os-G7N"/>
+                                        <exclude reference="9sa-cp-pgu"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="259" y="112" width="30" height="30"/>
+                                    <mask key="constraints">
+                                        <include reference="3U9-os-G7N"/>
+                                        <include reference="9sa-cp-pgu"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="creatTable:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bWO-b5-y4w"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2VA-UH-9sW">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="HzH-I0-OdD">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="60"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="30" id="jpz-o8-Cys"/>
+                                </constraints>
+                                <state key="normal" title="添加数据"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="HzH-I0-OdD"/>
+                                        <exclude reference="jpz-o8-Cys"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="HzH-I0-OdD"/>
+                                        <include reference="jpz-o8-Cys"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="addSource:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NtD-QX-r4t"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="77k-IO-2aR">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="fYN-4i-DEf"/>
+                                    <constraint firstAttribute="width" constant="46" id="glf-Pc-ZhD">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="60"/>
+                                    </constraint>
+                                </constraints>
+                                <state key="normal" title="删除数据"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="fYN-4i-DEf"/>
+                                        <exclude reference="glf-Pc-ZhD"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="fYN-4i-DEf"/>
+                                        <include reference="glf-Pc-ZhD"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="deleteSource:" destination="BYZ-38-t0r" eventType="touchUpInside" id="COG-eJ-7gs"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2VA-UH-9sW" firstAttribute="top" secondItem="6F7-e1-c0T" secondAttribute="bottom" constant="71" id="2Go-xX-t3P"/>
+                            <constraint firstItem="77k-IO-2aR" firstAttribute="top" secondItem="NM1-5z-uYT" secondAttribute="bottom" constant="77" id="D8m-Ri-ZwP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NM1-5z-uYT" secondAttribute="trailing" constant="62" id="DPd-bX-Gc0">
+                                <variation key="heightClass=regular-widthClass=compact" constant="66"/>
+                            </constraint>
+                            <constraint firstItem="6F7-e1-c0T" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="92" id="Duc-C4-ZX2"/>
+                            <constraint firstItem="2VA-UH-9sW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="67" id="HPS-qz-Jdu">
+                                <variation key="heightClass=regular-widthClass=compact" constant="60"/>
+                            </constraint>
+                            <constraint firstItem="6F7-e1-c0T" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="67" id="Rrf-Bd-veE">
+                                <variation key="heightClass=regular-widthClass=compact" constant="53"/>
+                            </constraint>
+                            <constraint firstAttribute="trailing" secondItem="77k-IO-2aR" secondAttribute="trailing" constant="82" id="Ytm-J6-Y2M">
+                                <variation key="heightClass=regular-widthClass=compact" constant="75"/>
+                            </constraint>
+                            <constraint firstItem="NM1-5z-uYT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="92" id="riS-Xg-NuN"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="6F7-e1-c0T"/>
+                                <exclude reference="NM1-5z-uYT"/>
+                                <exclude reference="2VA-UH-9sW"/>
+                                <exclude reference="77k-IO-2aR"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="Duc-C4-ZX2"/>
+                                <exclude reference="Rrf-Bd-veE"/>
+                                <exclude reference="2Go-xX-t3P"/>
+                                <exclude reference="HPS-qz-Jdu"/>
+                                <exclude reference="DPd-bX-Gc0"/>
+                                <exclude reference="riS-Xg-NuN"/>
+                                <exclude reference="D8m-Ri-ZwP"/>
+                                <exclude reference="Ytm-J6-Y2M"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="6F7-e1-c0T"/>
+                                <include reference="NM1-5z-uYT"/>
+                                <include reference="2VA-UH-9sW"/>
+                                <include reference="77k-IO-2aR"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="Duc-C4-ZX2"/>
+                                <include reference="Rrf-Bd-veE"/>
+                                <include reference="2Go-xX-t3P"/>
+                                <include reference="HPS-qz-Jdu"/>
+                                <include reference="DPd-bX-Gc0"/>
+                                <include reference="riS-Xg-NuN"/>
+                                <include reference="D8m-Ri-ZwP"/>
+                                <include reference="Ytm-J6-Y2M"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="addSource" destination="2VA-UH-9sW" id="zwg-6J-Lfv"/>
+                        <outlet property="creatTable" destination="NM1-5z-uYT" id="Yvt-Nr-TjG"/>
+                        <outlet property="creatdb" destination="6F7-e1-c0T" id="Ted-YM-HYb"/>
+                        <outlet property="deleteSource" destination="77k-IO-2aR" id="xNj-9b-kOO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="303.75" y="173.625"/>
         </scene>
     </scenes>
 </document>
