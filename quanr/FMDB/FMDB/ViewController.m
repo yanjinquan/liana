@@ -19,22 +19,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    NSString *str = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-    NSString *path = [str stringByAppendingPathComponent:@"myPath.db"];
-//    FMDatabase *db = [FMDatabase databaseWithPath:path];
-//    if ([db open]) {
-//        NSLog(@"数据库一打开");
-//        self.db = db;
-//    }
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    NSString *selectStr = [NSString stringWithFormat:@"select * from Student where name != 'lisi1' and age != '6'"];
+    NSString *selectStr = [NSString stringWithFormat:@"select * from Student1 where name != 'lisi1' and age != '6'"];
     FMResultSet * rs = [self.db executeQuery:selectStr];
     while ([rs next]) {
         
         NSString * name = [rs stringForColumn:@"name"];
-        NSLog(@"%@",name);
+        NSInteger age = [rs intForColumn:@"age"];
+        NSInteger hight = [rs intForColumn:@"hight"];
+        NSDate *date = [rs dateForColumn:@"birthday"];
+        NSLog(@"%@ , %ld, %ld, %@",name, age, hight, date);
     }
     [self.db close];
 }
@@ -57,11 +53,12 @@
 }
 
 - (IBAction)creatTable:(id)sender {
-    NSString *string = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS Student (name text not null, age integer not null, hight integer, birthday text)"];
+    NSString *string = [NSString stringWithFormat:@"CREATE TABLE IF NOT EXISTS Student1 (name text not null, age integer not null, hight integer, birthday date)"];
     BOOL creat = [self.db executeUpdate:string];
     if (creat) {
         NSLog(@"creat sucess");
     }
+    
 }
 
 - (IBAction)deleteSource:(id)sender {
@@ -69,8 +66,15 @@
 
 - (IBAction)addSource:(id)sender {
     for (int i = 0; i < 20; i++) {
-    NSString *insertString = [NSString stringWithFormat:@"insert into Student (name , age, hight, birthday) values ('lisi%u', '%u', '%u', '%@')", i, arc4random_uniform(100), arc4random_uniform(200), [NSDate date]];
-        if([self.db executeUpdate:insertString]) NSLog(@"insert success");
+        NSString *name = [NSString stringWithFormat:@"lisi%d", i];
+        int age = 20 + arc4random_uniform(10);
+        int hight = 160 + arc4random_uniform(25);
+        NSDate *date = [NSDate date];
+       BOOL res = [self.db executeUpdate:@"insert into Student1 (name , age, hight, birthday) values (?, ?, ?, ?)", name, @(age), @(hight), date];
+        if (res) {
+            NSLog(@"insert Success");
+        }
     }
 }
+
 @end
